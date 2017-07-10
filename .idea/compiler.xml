@@ -6,15 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="serviceManager" />
         <module name="socketServer" />
+        <module name="utils" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="serviceManager" target="1.8" />
       <module name="socketME" target="1.8" />
       <module name="socketServer" target="1.8" />
       <module name="User" target="1.8" />
       <module name="user" target="1.8" />
-      <module name="utils" target="1.5" />
+      <module name="utils" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

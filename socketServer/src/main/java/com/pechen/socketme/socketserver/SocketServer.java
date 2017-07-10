@@ -10,12 +10,14 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashSet;
+import java.util.Properties;
 
 /**
  * Created by pechen on 6/29/2017.
  */
 public class SocketServer {
-    private static HashSet<PrintWriter> users = new HashSet<PrintWriter>();
+    Properties properties = new Properties();
+    private static HashSet<PrintWriter> userWriters = new HashSet<>();
     private static final int PORT = 8081;
 
     public static void startApplication() throws Exception {
@@ -52,14 +54,14 @@ public class SocketServer {
                 }
 
                 out.println(EnumMessageType.AUTH_SUCCESFUL.getActionNumber());
-                users.add(out);
+                userWriters.add(out);
 
                 while (true) {
                     String input = in.readLine();
                     if (input == null) {
                         return;
                     }
-                    for (PrintWriter writer : users) {
+                    for (PrintWriter writer : userWriters) {
                         writer.println(EnumMessageType.TEXT.getActionNumber() + " " + name + ": " + input);
                 }
                 }
