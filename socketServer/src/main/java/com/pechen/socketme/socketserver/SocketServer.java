@@ -1,22 +1,21 @@
 package com.pechen.socketme.socketserver;
 
+import com.pechen.service_manager.ServiceDiscovery;
 import com.pechen.socketme.enums.EnumMessageType;
-import com.pechen.socketme.user.UsersContainer;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import javax.inject.Inject;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.Response;
+
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashSet;
-import java.util.Properties;
 
 /**
  * Created by pechen on 6/29/2017.
  */
 public class SocketServer {
-    Properties properties = new Properties();
     private static HashSet<PrintWriter> userWriters = new HashSet<>();
     private static final int PORT = 8081;
 
@@ -35,6 +34,10 @@ public class SocketServer {
         private String name;
         private Socket socket;
 
+        @Inject
+        ServiceDiscovery services;
+
+        @Inject
         public Handler(Socket socket) {
             this.socket = socket;
         }
@@ -50,7 +53,12 @@ public class SocketServer {
                     if (name == null) {
                         return;
                     }
-                    isAuth = UsersContainer.authNewUser(name);
+                    Response response = services.getUserService().request().post(Entity.json(name));
+
+                    Response.StatusType statusInfo = response.getStatusInfo();
+
+                    if (statusInfo.getFamily() == Response.Status.Family.SUCCESSFUL)
+                        isAuth = true;
                 }
 
                 out.println(EnumMessageType.AUTH_SUCCESFUL.getActionNumber());
@@ -69,7 +77,7 @@ public class SocketServer {
                 System.out.println(e);
             } finally {
                 if (name != null) {
-                    UsersContainer.logoutUser(name);
+                    services.getUserService().path(name).request().delete();
                 }
                 try {
                     socket.close();

@@ -1,4 +1,4 @@
-package com.pechen.socketme.user;
+package com.pechen.user;
 
 import java.security.SecureRandom;
 import java.util.Set;
