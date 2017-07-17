@@ -1,6 +1,7 @@
 package com.pechen.user;
 
 import com.pechen.service_manager.IServiceRegistry;
+import com.pechen.service_manager.Services;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -14,7 +15,7 @@ import javax.inject.Inject;
 @Startup
 @Singleton
 public class UserService {
-    @Inject
+    @Inject @Services
     IServiceRegistry services;
 
     private static final String serviceURL = "http://localhost:8080/user/";

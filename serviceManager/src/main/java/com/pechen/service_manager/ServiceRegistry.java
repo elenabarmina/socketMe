@@ -7,6 +7,7 @@ import javax.inject.Inject;
 /**
  * Created by pechen on 7/10/2017.
  */
+@Services
 @ApplicationScoped
 public class ServiceRegistry implements IServiceRegistry{
 
