@@ -4,11 +4,7 @@ import java.io.StringReader;
 import javax.ejb.Stateless;
 import javax.json.Json;
 import javax.json.JsonObject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 

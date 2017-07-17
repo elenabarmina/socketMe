@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b16487e2-7831-4580-847d-b280fbd9206a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/Services.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_jsr250_api_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_enterprise_cdi_api_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_interceptor_jboss_interceptor_api_1_1.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serviceManager/pom.xml" afterPath="$PROJECT_DIR$/serviceManager/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serviceManager/serviceManager.iml" afterPath="$PROJECT_DIR$/serviceManager/serviceManager.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/ServiceDiscovery.java" afterPath="$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/ServiceDiscovery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/ServiceRegistry.java" afterPath="$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/ServiceRegistry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/socketServer/socketServer.iml" afterPath="$PROJECT_DIR$/socketServer/socketServer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/pom.xml" afterPath="$PROJECT_DIR$/user/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserService.java" afterPath="$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/user.iml" afterPath="$PROJECT_DIR$/user/user.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserREST.java" afterPath="$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserREST.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,32 +35,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="IServiceRegistry.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/IServiceRegistry.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
               <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserREST.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserREST.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="760">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding>
+                <element signature="e#658#659#0" expanded="true" />
+                <element signature="e#705#706#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,13 +96,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state relative-caret-position="313">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#675#676#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,6 +124,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/src/main/java/com/pechen/user/ApplicationConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -214,7 +207,6 @@
         <option value="$PROJECT_DIR$/socketServer/src/main/java/com/pechen/socketme/socketserver/SocketServer.java" />
         <option value="$PROJECT_DIR$/utils/src/main/java/com/pechen/props/PropertiesUtil.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserREST.java" />
         <option value="$PROJECT_DIR$/user/src/main/java/com/pechen/user/ApplicationConfig.java" />
         <option value="$PROJECT_DIR$/serviceManager/pom.xml" />
         <option value="$PROJECT_DIR$/user/pom.xml" />
@@ -223,6 +215,7 @@
         <option value="$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/IServiceRegistry.java" />
         <option value="$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/ServiceRegistry.java" />
         <option value="$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserService.java" />
+        <option value="$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserREST.java" />
       </list>
     </option>
   </component>
@@ -548,7 +541,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/user/pom.xml" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -569,7 +562,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JBoss Server.user">
+  <component name="RunManager" selected="JBoss Server.User">
     <configuration default="false" name="SocketServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1184,11 +1177,11 @@
         <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
-    <configuration default="false" name="user" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 11.0.0.Beta11" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/" />
+    <configuration default="false" name="User" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 11.0.0.Beta11" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/user/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="user">
+        <artifact name="user:war">
           <settings />
         </artifact>
       </deployment>
@@ -1203,7 +1196,7 @@
       <predefined_log_file id="JBoss" enabled="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="59294" />
+        <option name="DEBUG_PORT" value="62955" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -1252,7 +1245,7 @@
       </ConfigurationWrapper>
       <method>
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="user" />
+          <artifact name="user:war" />
         </option>
       </method>
     </configuration>
@@ -1260,7 +1253,7 @@
       <item index="0" class="java.lang.String" itemvalue="Application.appserver" />
       <item index="1" class="java.lang.String" itemvalue="JBoss Server.appserver" />
       <item index="2" class="java.lang.String" itemvalue="JBoss Server.Utils" />
-      <item index="3" class="java.lang.String" itemvalue="JBoss Server.user" />
+      <item index="3" class="java.lang.String" itemvalue="JBoss Server.User" />
       <item index="4" class="java.lang.String" itemvalue="Application.SocketServer" />
     </list>
     <recent_temporary>
@@ -1287,7 +1280,7 @@
       <workItem from="1498760060154" duration="11109000" />
       <workItem from="1499192745828" duration="20595000" />
       <workItem from="1499698915279" duration="6792000" />
-      <workItem from="1500309897042" duration="3960000" />
+      <workItem from="1500309897042" duration="4895000" />
     </task>
     <task id="LOCAL-00001" summary="attempt to fix architecture">
       <created>1500310518730</created>
@@ -1296,11 +1289,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500310518730</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="attempt to fix architecture2">
+      <created>1500314338440</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1500314338440</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51502000" />
+    <option name="totallyTimeSpent" value="52437000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1328,7 +1328,7 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48498583" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2838527" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974505" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1405,7 +1405,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="attempt to fix architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="attempt to fix architecture" />
+    <MESSAGE value="attempt to fix architecture2" />
+    <option name="LAST_COMMIT_MESSAGE" value="attempt to fix architecture2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1446,7 +1447,10 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1745,24 +1749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserREST.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/src/main/java/com/pechen/user/ApplicationConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="8" column="50" lean-forward="false" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/AbstractServiceDiscovery.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -1871,12 +1857,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/user/src/main/java/com/pechen/user/ApplicationConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="313">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/src/main/java/com/pechen/user/UserREST.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#658#659#0" expanded="true" />
+            <element signature="e#705#706#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1887,7 +1893,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>user</last-edited>
+          <last-edited>serviceManager:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
