@@ -6,7 +6,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/socketServer/target/classes/com/pechen/socketme/socketserver/SocketServer.class" afterPath="$PROJECT_DIR$/socketServer/target/classes/com/pechen/socketme/socketserver/SocketServer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/ServiceRegistry.java" afterPath="$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/ServiceRegistry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/socketServer/src/main/java/com/pechen/socketme/socketserver/SocketServer.java" afterPath="$PROJECT_DIR$/socketServer/src/main/java/com/pechen/socketme/socketserver/SocketServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -80,7 +79,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocketServer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SocketServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/socketServer/src/main/java/com/pechen/socketme/socketserver/SocketServer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="452">
@@ -92,14 +91,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServiceRegistry.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ServiceRegistry.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/ServiceRegistry.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="394">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
+                <element signature="e#501#502#0" expanded="true" />
+                <element signature="e#548#549#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1140,7 +1140,7 @@
       <workItem from="1499192745828" duration="20595000" />
       <workItem from="1499698915279" duration="6792000" />
       <workItem from="1500309897042" duration="6755000" />
-      <workItem from="1500407911365" duration="1256000" />
+      <workItem from="1500407911365" duration="1322000" />
     </task>
     <task id="LOCAL-00001" summary="attempt to fix architecture">
       <created>1500310518730</created>
@@ -1163,11 +1163,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500315348305</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="services injection">
+      <created>1500409226957</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1500409226957</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55553000" />
+    <option name="totallyTimeSpent" value="55619000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1274,7 +1281,8 @@
     <MESSAGE value="attempt to fix architecture" />
     <MESSAGE value="attempt to fix architecture2" />
     <MESSAGE value="user worked yiii" />
-    <option name="LAST_COMMIT_MESSAGE" value="user worked yiii" />
+    <MESSAGE value="services injection" />
+    <option name="LAST_COMMIT_MESSAGE" value="services injection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1755,23 +1763,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/ServiceRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/socketServer/src/main/java/com/pechen/socketme/socketserver/SocketServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
           <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serviceManager/src/main/java/com/pechen/service_manager/ServiceRegistry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
           </folding>
         </state>
       </provider>
