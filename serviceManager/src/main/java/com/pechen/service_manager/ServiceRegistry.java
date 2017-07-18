@@ -19,7 +19,7 @@ public class ServiceRegistry implements IServiceRegistry{
 
     @Override
     public void registerService(String name, String url) {
-        services.putIfAbsent(name, url);
+        services.put(name, url);
     }
 
     @Override

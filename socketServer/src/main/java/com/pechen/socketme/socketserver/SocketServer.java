@@ -3,7 +3,9 @@ package com.pechen.socketme.socketserver;
 import com.pechen.service_manager.ServiceDiscovery;
 import com.pechen.socketme.enums.EnumMessageType;
 
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Response;
 
@@ -15,7 +17,9 @@ import java.util.HashSet;
 /**
  * Created by pechen on 6/29/2017.
  */
-public class SocketServer {
+@SessionScoped
+@Named
+public class SocketServer implements Serializable{
     private static HashSet<PrintWriter> userWriters = new HashSet<>();
     private static final int PORT = 8081;
 
