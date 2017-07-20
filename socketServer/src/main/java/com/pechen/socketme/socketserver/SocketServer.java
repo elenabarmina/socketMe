@@ -1,6 +1,7 @@
 package com.pechen.socketme.socketserver;
 
 import com.pechen.service_manager.ServiceDiscovery;
+import com.pechen.socketme.beans.UserManager;
 import com.pechen.socketme.enums.EnumMessageType;
 
 import javax.faces.bean.SessionScoped;
@@ -38,8 +39,8 @@ public class SocketServer implements Serializable{
         private String name;
         private Socket socket;
 
-        @Inject
-        ServiceDiscovery services;
+        UserManager userManager = new UserManager();
+
 
         @Inject
         public Handler(Socket socket) {
@@ -57,12 +58,7 @@ public class SocketServer implements Serializable{
                     if (name == null) {
                         return;
                     }
-                    Response response = services.getUserService().request().post(Entity.json(name));
-
-                    Response.StatusType statusInfo = response.getStatusInfo();
-
-                    if (statusInfo.getFamily() == Response.Status.Family.SUCCESSFUL)
-                        isAuth = true;
+                    isAuth = userManager.authUser(name);
                 }
 
                 out.println(EnumMessageType.AUTH_SUCCESFUL.getActionNumber());
@@ -81,7 +77,7 @@ public class SocketServer implements Serializable{
                 System.out.println(e);
             } finally {
                 if (name != null) {
-                    services.getUserService().path(name).request().delete();
+                    userManager.logoutUser(name);
                 }
                 try {
                     socket.close();

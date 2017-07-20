@@ -1,6 +1,5 @@
 package com.pechen.user;
 
-import java.security.SecureRandom;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 

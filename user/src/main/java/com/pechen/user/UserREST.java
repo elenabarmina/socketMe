@@ -22,7 +22,11 @@ public class UserREST {
         return Response.ok(UsersContainer.authNewUser(jsonObject.getString("name"))).build();
     }
 
-
+    @GET
+    @Consumes("application/json")
+    public String create() {
+        return "hello";
+    }
 
     @DELETE
     @Path("{name}")
