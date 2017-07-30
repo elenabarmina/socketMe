@@ -12,16 +12,6 @@
     <artifactId>socketServer</artifactId>
     <dependencies>
         <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.pechen</groupId>
-            <artifactId>serviceManager</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
             <groupId>com.pechen</groupId>
             <artifactId>serviceManager</artifactId>
             <version>1.0</version>

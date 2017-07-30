@@ -18,7 +18,7 @@ public class UserService {
     @Inject @Services
     IServiceRegistry services;
 
-    private static final String serviceURL = "http://localhost:8080/user/res/user";
+    private static final String serviceURL = "http://localhost:9080/user/res/user";
 
     private static final String serviceName = "user";
 

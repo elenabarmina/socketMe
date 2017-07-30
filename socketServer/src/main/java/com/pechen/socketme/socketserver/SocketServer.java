@@ -1,15 +1,11 @@
 package com.pechen.socketme.socketserver;
 
-import com.pechen.service_manager.ServiceDiscovery;
 import com.pechen.socketme.beans.UserManager;
 import com.pechen.socketme.enums.EnumMessageType;
 
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.Response;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -18,11 +14,11 @@ import java.util.HashSet;
 /**
  * Created by pechen on 6/29/2017.
  */
-@SessionScoped
 @Named
+@ApplicationScoped
 public class SocketServer implements Serializable{
     private static HashSet<PrintWriter> userWriters = new HashSet<>();
-    private static final int PORT = 8081;
+    private static final int PORT = 8080;
 
     public static void startApplication() throws Exception {
         ServerSocket listener = new ServerSocket(PORT);
@@ -71,7 +67,7 @@ public class SocketServer implements Serializable{
                     }
                     for (PrintWriter writer : userWriters) {
                         writer.println(EnumMessageType.TEXT.getActionNumber() + " " + name + ": " + input);
-                }
+                    }
                 }
             } catch (IOException e) {
                 System.out.println(e);
