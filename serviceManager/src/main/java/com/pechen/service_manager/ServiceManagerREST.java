@@ -32,20 +32,13 @@ public class ServiceManagerREST {
         if (!isAuth(authString))
             return Response.status(Response.Status.UNAUTHORIZED).build();
 
-        Gson gson = new Gson();
-        Service inputService = gson.fromJson(entity, Service.class);
+        Service inputService = getServiceFromJson(entity);
 
-        try {
-            URL checkURL = new URL("http://" + inputService.getUrl());
-            URLConnection conn = checkURL.openConnection();
-            conn.connect();
-        } catch (MalformedURLException e) {
-            return Response.serverError().entity("the URL is not in a valid form").build();
-        } catch (IOException e) {
-            return Response.serverError().entity("the connection couldn't be established").build();
-        }
+        if (!isTrustedUrl(inputService.getUrl()))
+            return Response.serverError().entity("connection to service couldn't be established").build();
 
         services.registerService(inputService.getName(), inputService.getUrl());
+
         return Response.ok("ok").build();
     }
 
@@ -54,10 +47,8 @@ public class ServiceManagerREST {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response unregister(String entity){
 
-        Gson gson = new Gson();
-        Service inputService = gson.fromJson(entity, Service.class);
-
-        services.unregisterService(inputService.getName(), inputService.getUrl());
+        Service service = getServiceFromJson(entity);
+        services.unregisterService(service.getName(), service.getUrl());
 
         return Response.ok("ok").build();
     }
@@ -83,5 +74,22 @@ public class ServiceManagerREST {
         decodedAuth = new String(bytes);
 
         return decodedAuth.equals("microServ:g4bdEt9");
+    }
+
+    protected boolean isTrustedUrl(String url){
+        try {
+            URL checkURL = new URL("http://" + url);
+            URLConnection conn = checkURL.openConnection();
+            conn.connect();
+        } catch (IOException e) {
+            return false;
+        }
+        return true;
+    }
+
+    protected Service getServiceFromJson(String jsonString){
+        Gson gson = new Gson();
+        Service inputService = gson.fromJson(jsonString, Service.class);
+        return inputService;
     }
 }
