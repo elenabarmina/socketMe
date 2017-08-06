@@ -1,8 +1,17 @@
 package com.pechen.service_manager;
 
+import com.google.common.base.Strings;
+import com.google.gson.Gson;
+import sun.misc.BASE64Decoder;
+
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 
 /**
  * Created by pechen on 8/4/2017.
@@ -14,17 +23,65 @@ public class ServiceManagerREST {
     @Services
     ServiceRegistry services;
 
-    @POST
+    @PUT
     @Path("/register")
-    public Response register(
-        @QueryParam("name") String name,
-        @QueryParam("url") String url,
-        @HeaderParam("token") String token) {
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response register(@HeaderParam("authorization") String authString,
+                             String entity){
 
-        services.registerService(name, url);
+        if (!isAuth(authString))
+            return Response.status(Response.Status.UNAUTHORIZED).build();
 
-            return Response
-                    .status(200)
-                    .entity("ok").build();
+        Gson gson = new Gson();
+        Service inputService = gson.fromJson(entity, Service.class);
+
+        try {
+            URL checkURL = new URL("http://" + inputService.getUrl());
+            URLConnection conn = checkURL.openConnection();
+            conn.connect();
+        } catch (MalformedURLException e) {
+            return Response.serverError().entity("the URL is not in a valid form").build();
+        } catch (IOException e) {
+            return Response.serverError().entity("the connection couldn't be established").build();
+        }
+
+        services.registerService(inputService.getName(), inputService.getUrl());
+        return Response.ok("ok").build();
+    }
+
+    @DELETE
+    @Path("/unregister")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response unregister(String entity){
+
+        Gson gson = new Gson();
+        Service inputService = gson.fromJson(entity, Service.class);
+
+        services.unregisterService(inputService.getName(), inputService.getUrl());
+
+        return Response.ok("ok").build();
+    }
+
+    @GET
+    @Path("/get/{name}")
+    public String getServiceUrl(@PathParam("name") String name){
+        return services.discoverServiceURI(name);
+    }
+
+    protected boolean isAuth(String authString){
+        if (Strings.isNullOrEmpty(authString)) return false;
+
+        String decodedAuth = "";
+        String[] authParts = authString.split("\\s+");
+        String authInfo = authParts[1];
+        byte[] bytes = null;
+        try {
+            bytes = new BASE64Decoder().decodeBuffer(authInfo);
+        } catch (IOException e) {
+            return false;
+        }
+        decodedAuth = new String(bytes);
+
+        return decodedAuth.equals("microServ:g4bdEt9");
     }
 }

@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.ws.rs.core.Response;
 
 /**
  * Created by pechen on 7/10/2017.
@@ -25,12 +26,14 @@ public class ServiceRegistry implements IServiceRegistry{
 
     @Override
     public void registerService(String name, String url) {
-        services.putIfAbsent(name, url);
+        if (isInputExists(name, url))
+            services.putIfAbsent(name, url);
     }
 
     @Override
     public void unregisterService(String name, String url) {
-        services.remove(name, url);
+        if (isInputExists(name, url))
+            services.remove(name, url);
     }
 
     @Override
@@ -39,5 +42,15 @@ public class ServiceRegistry implements IServiceRegistry{
             return services.get(name);
         }
         return null;
+    }
+
+    private boolean isInputExists(String name, String url){
+        if(name == null || name.trim().length() == 0) {
+            return false;
+        }
+        if(url == null || url.trim().length() == 0) {
+            return false;
+        }
+        return true;
     }
 }
