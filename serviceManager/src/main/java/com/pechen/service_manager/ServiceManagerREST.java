@@ -9,7 +9,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -39,7 +38,7 @@ public class ServiceManagerREST {
 
         services.registerService(inputService.getName(), inputService.getUrl());
 
-        return Response.ok("ok").build();
+        return Response.status(Response.Status.OK).build();
     }
 
     @DELETE
@@ -50,16 +49,22 @@ public class ServiceManagerREST {
         Service service = getServiceFromJson(entity);
         services.unregisterService(service.getName(), service.getUrl());
 
-        return Response.ok("ok").build();
+        return Response.status(Response.Status.OK).build();
     }
 
     @GET
     @Path("/get/{name}")
-    public String getServiceUrl(@PathParam("name") String name){
-        return services.discoverServiceURI(name);
+    public Response getServiceUrl(@PathParam("name") String name){
+        String serviceUrl = services.discoverServiceURI(name);
+
+        if (Strings.isNullOrEmpty(serviceUrl))
+            return Response.status(Response.Status.NOT_FOUND).build();
+
+        return Response.status(Response.Status.OK).entity(serviceUrl).build();
+
     }
 
-    protected boolean isAuth(String authString){
+    private boolean isAuth(String authString){
         if (Strings.isNullOrEmpty(authString)) return false;
 
         String decodedAuth = "";
@@ -76,7 +81,7 @@ public class ServiceManagerREST {
         return decodedAuth.equals("microServ:g4bdEt9");
     }
 
-    protected boolean isTrustedUrl(String url){
+    private boolean isTrustedUrl(String url){
         try {
             URL checkURL = new URL("http://" + url);
             URLConnection conn = checkURL.openConnection();
@@ -87,9 +92,8 @@ public class ServiceManagerREST {
         return true;
     }
 
-    protected Service getServiceFromJson(String jsonString){
+    private Service getServiceFromJson(String jsonString){
         Gson gson = new Gson();
-        Service inputService = gson.fromJson(jsonString, Service.class);
-        return inputService;
+        return gson.fromJson(jsonString, Service.class);
     }
 }
