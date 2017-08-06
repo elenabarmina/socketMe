@@ -15,6 +15,6 @@ public class ServiceDiscovery extends AbstractServiceDiscovery{
 
     @Override
     public String getUserServiceURL() {
-        return services.discoverServiceURI(FamiliarServices.USER.getName());
+        return services.discoverServiceURI("user");
     }
 }
