@@ -18,6 +18,8 @@ import java.net.URLConnection;
 @Path("/service")
 public class ServiceManagerREST {
 
+    private static String AUTH_STRING = "microServ:g4bdEt9";
+
     @Inject
     @Services
     ServiceRegistry services;
@@ -36,7 +38,8 @@ public class ServiceManagerREST {
         if (!isTrustedUrl(inputService.getUrl()))
             return Response.serverError().entity("connection to service couldn't be established").build();
 
-        services.registerService(inputService.getName(), inputService.getUrl());
+        if (!services.registerService(inputService.getName(), inputService.getUrl()))
+            return Response.status(Response.Status.CONFLICT).build();;
 
         return Response.status(Response.Status.OK).build();
     }
@@ -44,17 +47,29 @@ public class ServiceManagerREST {
     @DELETE
     @Path("/unregister")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response unregister(String entity){
+    public Response unregister(@HeaderParam("authorization") String authString,
+                               String entity){
 
-        Service service = getServiceFromJson(entity);
-        services.unregisterService(service.getName(), service.getUrl());
+        if (!isAuth(authString))
+            return Response.status(Response.Status.UNAUTHORIZED).build();
+
+        Service inputService = getServiceFromJson(entity);
+
+        if (!services.unregisterService(inputService.getName(), inputService.getUrl()))
+            return Response.status(Response.Status.NOT_FOUND).build();
 
         return Response.status(Response.Status.OK).build();
     }
 
     @GET
     @Path("/get/{name}")
-    public Response getServiceUrl(@PathParam("name") String name){
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getServiceUrl(@HeaderParam("authorization") String authString,
+                                  @PathParam("name") String name){
+
+        if (!isAuth(authString))
+            return Response.status(Response.Status.UNAUTHORIZED).build();
+
         String serviceUrl = services.discoverServiceURI(name);
 
         if (Strings.isNullOrEmpty(serviceUrl))
@@ -78,7 +93,7 @@ public class ServiceManagerREST {
         }
         decodedAuth = new String(bytes);
 
-        return decodedAuth.equals("microServ:g4bdEt9");
+        return decodedAuth.equals(AUTH_STRING);
     }
 
     private boolean isTrustedUrl(String url){

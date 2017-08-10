@@ -25,15 +25,19 @@ public class ServiceRegistry implements IServiceRegistry{
     }
 
     @Override
-    public void registerService(String name, String url) {
-        if (isInputExists(name, url))
-            services.putIfAbsent(name, url);
+    public boolean registerService(String name, String url) {
+        if (!isInputExists(name, url)) return false;
+
+        String oldValue = services.putIfAbsent(name, url);
+        return oldValue == null;
     }
 
     @Override
-    public void unregisterService(String name, String url) {
-        if (isInputExists(name, url))
-            services.remove(name, url);
+    public boolean unregisterService(String name, String url) {
+        return isInputExists(name, url)
+                && services.contains(url)
+                && services.remove(name, url);
+
     }
 
     @Override
@@ -44,13 +48,8 @@ public class ServiceRegistry implements IServiceRegistry{
         return null;
     }
 
-    private boolean isInputExists(String name, String url){
-        if(name == null || name.trim().length() == 0) {
-            return false;
-        }
-        if(url == null || url.trim().length() == 0) {
-            return false;
-        }
-        return true;
+    private boolean isInputExists(String name, String url) {
+        return !(name == null || name.trim().length() == 0)
+                    && !(url == null || url.trim().length() == 0);
     }
 }
