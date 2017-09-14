@@ -11,6 +11,7 @@
         <module>utils</module>
         <module>serviceManager</module>
         <module>user</module>
+        <module>commander</module>
     </modules>
     <name>socketME</name>
   <url>http://maven.apache.org</url>

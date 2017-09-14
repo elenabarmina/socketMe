@@ -30,9 +30,9 @@ public class UserREST {
     }
 
     @GET
-    @Consumes("application/json")
+    @Path("/ping")
     public String create() {
-        return "hello";
+        return "pong";
     }
 
     @DELETE
