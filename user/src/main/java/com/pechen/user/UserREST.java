@@ -19,7 +19,14 @@ public class UserREST {
     public Response create(String rawData) {
         JsonObject jsonObject = Json.createReader(new StringReader(rawData)).readObject();
 
-        return Response.ok(UsersContainer.authNewUser(jsonObject.getString("name"))).build();
+        if (UsersContainer.authNewUser(jsonObject.getString("name"))){
+            return Response.status(Response.Status.CREATED)
+                    .entity("{\"result\":\"created\"}").build();
+        }else{
+            return Response.status(Response.Status.CONFLICT)
+                    .entity("{\"result\":\"user already exists\"}").build();
+        }
+
     }
 
     @GET
@@ -29,8 +36,16 @@ public class UserREST {
     }
 
     @DELETE
-    @Path("{name}")
-    public void remove(@PathParam("name") String name) {
-        UsersContainer.logoutUser(name);
+    @Consumes("application/json")
+    public Response remove(String rawData) {
+        JsonObject jsonObject = Json.createReader(new StringReader(rawData)).readObject();
+
+        if (UsersContainer.logoutUser(jsonObject.getString("name"))){
+            return Response.status(Response.Status.OK)
+                    .entity("{\"result\":\"created\"}").build();
+        }else{
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("{\"result\":\"user already exists\"}").build();
+        }
     }
 }
