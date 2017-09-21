@@ -36,7 +36,7 @@
     </dependencies>
 
     <build>
-        <finalName>user</finalName>
+        <finalName>commander</finalName>
         <plugins>
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
