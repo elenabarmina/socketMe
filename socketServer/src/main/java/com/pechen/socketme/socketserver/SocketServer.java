@@ -28,7 +28,7 @@ public class SocketServer implements Serializable{
     private static final int PORT = 8080;
 
     public static void startApplication() throws Exception {
-        logger.info("Starting aaplication");
+        logger.info("Starting aplication");
         ServerSocket listener = new ServerSocket(PORT);
         try {
             while (true) {
